@@ -9,7 +9,7 @@ import * as https from "https";
 import { updateTasaNear } from "./services/tasa.service";
 const fs = require("fs");
 
-const PORT = Number(process.env.POST) || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const app = express();
 
 app.use(morgan("dev"));
