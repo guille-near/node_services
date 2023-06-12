@@ -6,6 +6,7 @@ import morgan from "morgan";
 import { router } from "./routes";
 import * as http from "http";
 import * as https from "https";
+import { updateTasaNear } from "./services/tasa.service";
 const fs = require("fs");
 
 const PORT = Number(process.env.POST) || 3000;
@@ -37,3 +38,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 server.listen(PORT, () => console.log(`Listo por el puerto ${PORT}`));
+
+const startUpdateTasa = () => {
+  updateTasaNear();
+  setInterval(async () => {
+    updateTasaNear();
+  }, 900000);
+};
+
+// startAutoSwap();
+startUpdateTasa();
