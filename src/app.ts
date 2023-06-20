@@ -7,7 +7,10 @@ import { router } from "./routes";
 import * as http from "http";
 import * as https from "https";
 import { updateTasaNear } from "./services/tasa.service";
+import AppDataSource from "./config/data.source";
 const fs = require("fs");
+
+AppDataSource.initialize().then(() => console.log("Conexion ORM Ready"));
 
 const PORT = Number(process.env.PORT) || 3000;
 const app = express();
