@@ -7,7 +7,7 @@ async function setEmailSubscribe(req: Request, res: Response) {
 
     const emailSubscribe = await Subscribe.findOneBy({ email: email });
 
-    if (emailSubscribe) return res.status(400).send();
+    if (emailSubscribe) return res.status(204).send();
 
     const subs = new Subscribe();
     subs.email = email;
